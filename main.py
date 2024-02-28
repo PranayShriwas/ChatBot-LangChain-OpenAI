@@ -23,7 +23,7 @@ def continuously_refine_prompt(old_prompt):
 
             # Initialize message list with a system message
             messages = [
-                SystemMessagePromptTemplate(content="Welcome to the chat!").to_message(),
+                SystemMessage(content="Welcome to the chat!"),
             ]
 
             # Start the conversation loop
@@ -32,7 +32,7 @@ def continuously_refine_prompt(old_prompt):
                 user_input = input('You: ')
 
                 # Append user's message to the message list
-                messages.append(HumanMessagePromptTemplate(content=user_input).to_message())
+                messages.append(HumanMessage(content=user_input))
 
                 # Get AI response
                 ai_response = chat(messages=messages).content
@@ -41,7 +41,7 @@ def continuously_refine_prompt(old_prompt):
                 print('AI:', ai_response)
 
                 # Append AI response to the message list
-                messages.append(AIMessagePromptTemplate(content=ai_response).to_message())
+                messages.append(AIMessage(content=ai_response))
 
         except Exception as e:
             if 'insufficient_quota' in str(e):
