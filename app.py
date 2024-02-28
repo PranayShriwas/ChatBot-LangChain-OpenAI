@@ -1,8 +1,27 @@
-from langchain_openai import ChatOpenAI 
+from langchain_openai import ChatOpenAI
 from langchain.schema import AIMessage, HumanMessage, SystemMessage
 
-# Initialize the chatbot
-chat = ChatOpenAI(temperature=0, model='gpt-3.5-turbo', openai_api_key='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')
+# Function to refine the prompt based on user feedback
+def refine_prompt(old_prompt, feedback):
+    refined_prompt = old_prompt.strip() + "\n\n" + feedback.strip() + "\n\nLet's continue optimizing the conversation!\n"
+    return refined_prompt
+
+# Your old prompt
+old_prompt = "Refining and improving the prompt based on the testing, optimization."
+
+# User feedback (hypothetical, adjust as per actual feedback)
+user_feedback = """
+- Users found the chatbot responses informative but occasionally too formal.
+- Some users suggested adding more variety in question types to keep the conversation engaging.
+- Clarification was needed on how to end or reset the conversation.
+- Users also noted a desire for a more friendly and conversational tone.
+"""
+
+# Generate refined prompt
+refined_prompt = refine_prompt(old_prompt, user_feedback)
+
+# Initialize the chatbot with the refined prompt
+chat = ChatOpenAI(prompt=refined_prompt, temperature=0, model='gpt-3.5-turbo', openai_api_key='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')
 
 # Initialize message list with a system message
 messages = [
