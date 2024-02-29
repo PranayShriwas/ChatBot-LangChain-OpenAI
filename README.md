@@ -1,4 +1,4 @@
-# Detailed Report: Chatbot Prompt Refinement and Testing**
+# Detailed Report: Chatbot Prompt Refinement and Testing
 
 1. Introduction:
    - The purpose of this report is to provide a comprehensive overview of the process, challenges encountered, and performance evaluation conducted during the refinement and testing of the chatbot prompt.
